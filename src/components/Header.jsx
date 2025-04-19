@@ -109,7 +109,8 @@ function Header() {
             <Link
               className="flex flex-col items-center gap-1"
               to="https://github.com/shokhruh61"
-              aria-label="Bog‘lanish"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FaGithub className="h-7 w-7" />
               <span>GitHub</span>
