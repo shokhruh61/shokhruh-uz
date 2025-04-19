@@ -1,13 +1,11 @@
 import React from "react";
 
-
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import { FaArrowRight } from "react-icons/fa6";
 import FadeInUp from "../components/FadeInUp";
 
 function Home() {
-
   const navigate = useNavigate();
 
   function handleClick() {
@@ -17,7 +15,7 @@ function Home() {
   return (
     <div className="mx-auto mt-28 max-w-[1200px] px-4">
       <div className="flex flex-col items-center justify-center gap-10 text-center md:flex-row md:items-center md:justify-center md:text-center">
-        <div className="flex flex-col items-center justify-center gap-7 text-center md:items-start md:text-left">
+        <div className="flex flex-col items-center justify-center gap-7 p-5 text-center md:items-start md:p-4 md:text-left lg:p-2 xl:p-1">
           <FadeInUp delay={0.3}>
             <h1 className="mb-4 text-xl font-bold md:text-3xl lg:text-4xl">
               Assalomu alaykum, men Mahmudov Shohruhbekman
@@ -43,7 +41,7 @@ function Home() {
         </div>
 
         <FadeInUp delay={0.9}>
-          <div>
+          <div className="p-5 md:p-4 lg:p-2 xl:p-1">
             <img
               src="https://picsum.photos/400/400?random=1"
               className="rounded-full shadow-lg"

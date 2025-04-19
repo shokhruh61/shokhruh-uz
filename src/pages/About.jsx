@@ -14,7 +14,7 @@ function About() {
 
   return (
     <div className="mx-auto mt-28 max-w-[1200px]">
-      <div className="flex flex-col gap-7">
+      <div className="flex flex-col items-center gap-7 p-12 sm:items-start sm:p-4 md:p-3 lg:p-2 xl:p-1">
         <FadeInUp delay={0.3}>
           <p className="text-center text-[18px] leading-[22px] font-medium duration-300 hover:text-blue-400 md:text-left">
             Assalomu alaykum, Men Mahmudov Shohruhbekman. Men 2007-yil
