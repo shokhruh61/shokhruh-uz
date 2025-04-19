@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import FadeInUp from "../components/FadeInUp";
 import { RiReactjsFill, RiTailwindCssFill } from "react-icons/ri";
+import { FaBootstrap, FaSass, FaGitAlt } from "react-icons/fa";
 
 function About() {
   const navigate = useNavigate();
@@ -82,102 +83,100 @@ function About() {
             <li
               title="HTML"
               aria-label="HTML"
-              className="w-48 rounded-xl border-2 pt-9 pr-16 pb-9 pl-16 text-center"
+              className=" flex flex-col items-center gap-0.5 w-48 rounded-xl border-2 pt-9 pr-16 pb-9 pl-16 text-center"
             >
-              <a
-                href="https://www.w3schools.com/Html/"
-                target="_blanked"
-                rel="noopener noreferrer"
-              >
-                <FaHtml5 className="mx-auto h-10 w-10 text-2xl text-[#e34c26] duration-300" />
-                Html
-              </a>
+              <FaHtml5 className="mx-auto h-10 w-10 text-2xl text-[#e34c26] duration-300" />
+              Html
             </li>
           </FadeInUp>
           <FadeInUp delay={0.4}>
             <li
               title="CSS"
               aria-label="CSS"
-              className="w-48 rounded-xl border-2 pt-9 pr-16 pb-9 pl-16 text-center"
+              className=" flex flex-col items-center gap-0.5 w-48 rounded-xl border-2 pt-9 pr-16 pb-9 pl-16 text-center"
             >
-              <a
-                href="https://www.w3schools.com/css/"
-                target="_blanked"
-                rel="noopener noreferrer"
-              >
-                <FaCss3 className="mx-auto h-10 w-10 text-2xl text-[#264de4] duration-300" />
-                Css
-              </a>
+              <FaCss3 className="mx-auto h-10 w-10 text-2xl text-[#264de4] duration-300" />
+              Css
+            </li>
+          </FadeInUp>
+          <FadeInUp delay={0.4}>
+            <li
+              title="SCSS"
+              aria-label="SCSS"
+              className=" flex flex-col items-center gap-0.5 w-48 rounded-xl border-2 pt-9 pr-16 pb-9 pl-16 text-center"
+            >
+              <FaSass className="mx-auto h-10 w-10 text-2xl text-[#e4269b] duration-300" />
+              Sass
             </li>
           </FadeInUp>
           <FadeInUp delay={0.5}>
             <li
               title="JavaScript"
               aria-label="JavaScript"
-              className="w-48 rounded-xl border-2 pt-9 pr-16 pb-9 pl-16 text-center"
+              className=" flex flex-col items-center gap-0.5 w-48 rounded-xl border-2 pt-9 pr-16 pb-9 pl-16 text-center"
             >
-              <a
-                href="https://www.w3schools.com/js/"
-                target="_blanked"
-                rel="noopener noreferrer"
-              >
-                <FaJs className="mx-auto h-10 w-10 text-2xl text-[#f0db4f] duration-300" />
-                JavaScript
-              </a>
+              <FaJs className="mx-auto h-10 w-10 text-2xl text-[#f4d92e] duration-300" />
+              JavaScript
             </li>
           </FadeInUp>
           <FadeInUp delay={0.6}>
             <li
               title="React"
               aria-label="React"
-              className="w-48 rounded-xl border-2 pt-9 pr-16 pb-9 pl-16 text-center"
+              className=" flex flex-col items-center gap-0.5 w-48 rounded-xl border-2 pt-9 pr-16 pb-9 pl-16 text-center"
             >
-              <a
-                href="https://react.dev/"
-                target="_blanked"
-                rel="noopener noreferrer"
-              >
-                <RiReactjsFill className="mx-auto h-10 w-10 text-2xl text-[#61DBFB] duration-300" />
-                React js
-              </a>
+              <RiReactjsFill className="mx-auto h-10 w-10 text-2xl text-[#61DBFB] duration-300" />
+              React js
             </li>
           </FadeInUp>
           <FadeInUp delay={0.7}>
             <li
               title="Tailwind CSS"
               aria-label="Tailwind CSS"
-              className="w-48 rounded-xl border-2 pt-9 pr-16 pb-9 pl-16 text-center"
+              className=" flex flex-col items-center gap-0.5 w-48 rounded-xl border-2 pt-9 pr-16 pb-9 pl-16 text-center"
             >
-              <a href="https://tailwindcss.com/">
-                <RiTailwindCssFill className="mx-auto h-10 w-10 text-2xl text-[#38BDF8] duration-300" />
-                Tailwind.css
-              </a>
+              <RiTailwindCssFill className="mx-auto h-10 w-10 text-2xl text-[#38BDF8] duration-300" />
+              Tailwind.css
+            </li>
+          </FadeInUp>
+          <FadeInUp delay={0.7}>
+            <li
+              title="Botstrap"
+              aria-label="Botstrap"
+              className=" flex flex-col items-center gap-0.5 w-48 rounded-xl border-2 pt-9 pr-16 pb-9 pl-16 text-center"
+            >
+              <FaBootstrap className="mx-auto h-10 w-10 text-2xl text-[#9e38f8] duration-300" />
+              Bootstrap
             </li>
           </FadeInUp>
           <FadeInUp delay={0.8}>
             <li
               title="Figma"
               aria-label="Figma"
-              className="w-48 rounded-xl border-2 pt-9 pr-16 pb-9 pl-16 text-center"
+              className=" flex flex-col items-center gap-0.5 w-48 rounded-xl border-2 pt-9 pr-16 pb-9 pl-16 text-center"
             >
-              <a
-                href="https://figma.com"
-                target="_blanked"
-                rel="noopener noreferrer"
+              <svg
+                
+                viewBox="0 0 100 140"
+                className="mx-auto h-10 w-10 text-2xl text-[#F24E1E] duration-300"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 100 140"
-                  className="mx-auto h-10 w-10 text-2xl text-[#F24E1E] duration-300"
-                >
-                  <circle cx="30" cy="30" r="20" fill="#F24E1E" />
-                  <circle cx="70" cy="30" r="20" fill="#FF7262" />
-                  <circle cx="30" cy="70" r="20" fill="#A259FF" />
-                  <circle cx="70" cy="70" r="20" fill="#1ABCFE" />
-                  <circle cx="30" cy="110" r="20" fill="#0ACF83" />
-                </svg>
-                Figma
-              </a>
+                <circle cx="30" cy="30" r="20" fill="#F24E1E" />
+                <circle cx="70" cy="30" r="20" fill="#FF7262" />
+                <circle cx="30" cy="70" r="20" fill="#A259FF" />
+                <circle cx="70" cy="70" r="20" fill="#1ABCFE" />
+                <circle cx="30" cy="110" r="20" fill="#0ACF83" />
+              </svg>
+              Figma
+            </li>
+          </FadeInUp>
+          <FadeInUp delay={0.8}>
+            <li
+              title="Git"
+              aria-label="Git"
+              className=" flex flex-col items-center gap-0.5 w-48 rounded-xl border-2 pt-9 pr-16 pb-9 pl-16 text-center"
+            >
+              <FaGitAlt className="mx-auto h-10 w-10 text-2xl text-[#ef5412] duration-300" />
+              Git
             </li>
           </FadeInUp>
         </ul>

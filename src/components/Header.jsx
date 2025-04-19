@@ -7,7 +7,7 @@ import Logo from "../assets/images/mylogo.png";
 
 function Header() {
   return (
-    <div>
+    <div className="">
       {/* Mobil Logo (faqat kichik ekranlar uchun) */}
       <div className="sm:bg-base-100 bg-none sm:hidden">
         <Link to="/" className="navbar-start block items-center gap-2">
@@ -18,7 +18,7 @@ function Header() {
       </div>
 
       {/* Desktop Navbar */}
-      <header className="navbar bg-base-100 fixed top-0 left-0 z-[1000] hidden w-full shadow-sm sm:flex">
+      <header className="navbar container max-w-[1630px] mx-auto bg-base-100 hidden w-full shadow-sm sm:flex">
         <div className="navbar-start">
           <Link to="/" className="flex items-center gap-2">
             <img
