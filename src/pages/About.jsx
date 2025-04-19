@@ -17,7 +17,7 @@ function About() {
       <div className="flex flex-col gap-7">
         <FadeInUp delay={0.3}>
           <p className="text-center text-[18px] leading-[22px] font-medium duration-300 hover:text-blue-400 md:text-left">
-            Assalomu alaykum, Men Mahmudov Shohruhbekman. Men 2008-yil
+            Assalomu alaykum, Men Mahmudov Shohruhbekman. Men 2007-yil
             O'zbekiston Respublikasining Farg'ona viloyatida tug'ilganman.
             Yoshligimdan texnologiyaga bo'lgan qiziqishim meni veb
             dasturchilikka yetakladi. Men foydalanuvchilar uchun qulay va
