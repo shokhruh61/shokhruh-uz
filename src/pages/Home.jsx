@@ -37,6 +37,7 @@ function Home() {
                 Haqimda <FaArrowRight />
               </Button>
             </div>
+            
           </FadeInUp>
         </div>
 

@@ -3,8 +3,7 @@ import ProjectCard from "../components/ProjectCard";
 import UnSplash from "../assets/images/unsplash.png";
 function Projects() {
   return (
-    <div className="mx-auto mt-28 flex max-w-[1200px] flex-wrap items-center justify-center gap-10 px-4">
-   
+    <div className="mx-auto mt-28 flex max-w-[1200px] flex-wrap items-center justify-center gap-10 sm:p-4 md:p-3 lg:p-2 xl:p-1">
       <ProjectCard
         className={"flex gap-2"}
         image={UnSplash}

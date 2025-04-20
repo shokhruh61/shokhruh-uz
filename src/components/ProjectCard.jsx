@@ -1,19 +1,20 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { PiBrowsersThin } from "react-icons/pi";
-import FadeInUp from "./FadeInUp";
+import { FaFilePdf } from "react-icons/fa";
 
+import FadeInUp from "./FadeInUp";
 function ProjectCard({ image, title, stack, githubUrl, liveUrl }) {
   return (
     <div>
       <FadeInUp delay={0.1}>
-        <div className="w-96 overflow-hidden rounded-xl bg-[#0f172a] text-white shadow-md duration-300 hover:rounded">
+        <div className="w-96 overflow-hidden rounded-xl bg-[#0f172a] px-7 py-5 text-white shadow-md duration-300 hover:rounded sm:px-0 sm:py-0 md:p-2">
           <FadeInUp delay={0.1}>
             <div className="relative h-48 bg-[#1e293b]">
               <img
                 src={image}
                 alt={title}
-                className="h-full w-full object-cover"
+                className="h-full w-full rounded-lg object-cover"
               />
               <div className="absolute bottom-2 left-2 rounded bg-black/30 px-2 py-1 text-sm font-semibold text-white">
                 {title}
@@ -47,6 +48,17 @@ function ProjectCard({ image, title, stack, githubUrl, liveUrl }) {
                 >
                   <PiBrowsersThin />
                   <span className="text-sm">WebSite</span>
+                </a>
+              </FadeInUp>
+              <FadeInUp delay={0.9}>
+                <a
+                  href="/src/assets/pdf/shohruhbek-Mahmudov-rezyume.pdf"
+                  download
+                  aria-label="Download Shohruhbek Mahmudov's resume"
+                  className="flex items-center gap-1 text-blue-400 transition hover:text-blue-600"
+                >
+                  <FaFilePdf />
+                  Rezyume
                 </a>
               </FadeInUp>
             </div>

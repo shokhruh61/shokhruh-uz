@@ -1,122 +1,104 @@
-import { FaHome, FaGithub } from "react-icons/fa";
-import { GrProjects } from "react-icons/gr";
-import { IoIosContact } from "react-icons/io";
-import { FcAbout } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import Logo from "../assets/images/mylogo.png";
+import { FaBarsStaggered, FaGithub } from "react-icons/fa6";
 
 function Header() {
+  const dropdownRef = useRef(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    const dropdown = dropdownRef.current;
+    if (dropdown) {
+      const details = dropdown.querySelector("ul");
+      if (details) {
+        dropdown.removeAttribute("open");
+      }
+    }
+  }, [location.pathname]);
+
   return (
-    <div className="">
-      {/* Mobil Logo (faqat kichik ekranlar uchun) */}
-      <div className="sm:bg-base-100 bg-none sm:hidden">
-        <Link to="/" className="navbar-start block items-center gap-2">
-          <p className="text-primary hover:text-primary-focus transform text-center text-2xl font-bold transition duration-300 hover:scale-105">
-            SHOHRUH.<span className="text-green-700">uz</span>
-          </p>
-        </Link>
-      </div>
+    <div>
+      <div className="bg-base-100">
+        <header className="navbar container mx-auto bg-base-100 w-full shadow-sm">
+          <div className="navbar-start">
+            <Link to="/" className="flex items-center gap-2">
+              <img
+                className="hidden h-[40px] w-[40px] transform rounded-full hover:scale-100 sm:block"
+                src={Logo}
+                alt="my logo png"
+              />
+              <p className="text-primary hover:text-primary-focus hidden transform text-2xl font-bold transition duration-300 hover:scale-105 sm:block">
+                SHOHRUH.
+                <span className="hover:text-primary text-green-700">uz</span>
+              </p>
+            </Link>
 
-      {/* Desktop Navbar */}
-      <header className="navbar container max-w-[1630px] mx-auto bg-base-100 hidden w-full shadow-sm sm:flex">
-        <div className="navbar-start">
-          <Link to="/" className="flex items-center gap-2">
-            <img
-              className="h-[40px] w-[40px] transform rounded-full hover:scale-100"
-              src={Logo}
-              alt="my logo png"
-            />
-            <p className="text-primary hover:text-primary-focus transform text-2xl font-bold transition duration-300 hover:scale-105">
-              SHOHRUH.<span className="text-green-700">uz</span>
+            <div className="bg-base-100 flex h-16 items-center px-4 sm:hidden">
+              <div ref={dropdownRef} className="dropdown h-full">
+                <div
+                  tabIndex={1}
+                  role="button"
+                  className="btn btn-ghost flex h-full w-full items-center justify-center"
+                >
+                  <FaBarsStaggered className="h-7 w-7" />
+                </div>
+
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
+                >
+                  <li>
+                    <Link to="/">Home</Link>
+                  </li>
+                  <li>
+                    <Link to="/about">About</Link>
+                  </li>
+                  <li>
+                    <Link to="/projects">Projects</Link>
+                  </li>
+                  <li>
+                    <Link to="/contact">Contact</Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="navbar-center">
+            <p className="text-primary hover:text-primary-focus block transform text-xl font-bold transition duration-300 hover:scale-105 sm:hidden">
+              SHOHRUH.
+              <span className="hover:text-primary text-green-700">uz</span>
             </p>
-          </Link>
-        </div>
+          </div>
 
-        <div className="navbar-center">
-          <nav>
-            <ul className="flex items-center gap-6">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/projects">Projects</Link>
-              </li>
-              <li>
-                <Link to="/contact">Contact</Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
+          <div className="navbar-end">
+            <nav className="hidden sm:block">
+              <ul className="flex items-center gap-4 sm:flex">
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/about">About</Link>
+                </li>
+                <li>
+                  <Link to="/projects">Projects</Link>
+                </li>
+                <li>
+                  <Link to="/contact">Contact</Link>
+                </li>
+              </ul>
+            </nav>
 
-        <div className="navbar-end">
-          <Link
-            to="https://github.com/shokhruh61"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaGithub className="ml-4 h-7 w-7" />
-          </Link>
-        </div>
-      </header>
-
-      {/* Mobile Bottom Navigation */}
-      <div className="bg-base-200 fixed right-2 bottom-2 left-2 z-50 block sm:hidden">
-        <ul className="rounded-box flex items-center justify-between p-0.5 shadow-lg">
-          <li>
             <Link
-              className="flex flex-col items-center gap-1"
-              to="/"
-              aria-label="Bosh sahifa"
-            >
-              <FaHome className="h-7 w-7" />
-              <span>home</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="flex flex-col items-center gap-1"
-              to="/about"
-              aria-label="Haqimda"
-            >
-              <FcAbout className="h-7 w-7" />
-              <span>about</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="flex flex-col items-center gap-1"
-              to="/projects"
-              aria-label="Loyihalar"
-            >
-              <GrProjects className="h-7 w-7" />
-              <span>projects</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="flex flex-col items-center gap-1"
-              to="/contact"
-              aria-label="Bog‘lanish"
-            >
-              <IoIosContact className="h-7 w-7" />
-              <span>contact</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="flex flex-col items-center gap-1"
               to="https://github.com/shokhruh61"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaGithub className="h-7 w-7" />
-              <span>GitHub</span>
+              <FaGithub className="ml-4 h-7 w-7" />
             </Link>
-          </li>
-        </ul>
+          </div>
+        </header>
       </div>
     </div>
   );
