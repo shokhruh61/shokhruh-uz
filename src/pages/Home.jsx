@@ -60,7 +60,7 @@ function Home() {
                   href="https://github.com/shokhruh61"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white"
+                  className="text-black"
                 >
                   <FaGithub className="h-7 w-7" />
                 </a>
