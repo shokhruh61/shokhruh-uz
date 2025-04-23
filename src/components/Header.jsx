@@ -80,7 +80,7 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link to="/contact">
+            <Link to="/projects">
               <GrProjects className="h-5 w-5" />
             </Link>
           </li>
