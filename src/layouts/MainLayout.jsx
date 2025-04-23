@@ -1,13 +1,13 @@
 import React from "react";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function MainLayout({ children }) {
   return (
     <div>
       <Header />
       {children}
-      <Footer/>
+      <ToastContainer />
     </div>
   );
 }

@@ -1,12 +1,43 @@
+import React, { useRef } from "react";
+import emailjs from "emailjs-com";
 import { FaEnvelope, FaPhone, FaTelegramPlane } from "react-icons/fa";
-import FadeInUp from "../components/FadeInUp"; // joylashgan joyiga qarab importni o'zgartir
+import FadeInUp from "../components/FadeInUp";
+import { toast } from "react-toastify";
 
 function Contact() {
+  const formRef = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_ygaykgo", // EmailJS dan olgan service ID
+        "template_punbob7", // EmailJS dan olgan template ID
+        formRef.current,
+        "Fz4FSjAzpU5Rnugvm", // EmailJS dan olgan public key
+      )
+      .then(
+        (result) => {
+          toast.success("Xabaringiz muvaffaqiyatli yuborildi!", result, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+          formRef.current.reset(); // Formani tozalash
+        },
+        (error) => {
+          toast.error("Xabar yuborishda xatolik yuz berdi!", error, {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+          formRef.current.reset(); // Formani tozalash
+        },
+      );
+  };
+
   return (
-    <section className="bg-base-200 min-h-screen px-4 py-16 sm:px-10">
+    <section className="min-h-screen bg-base-200 px-4 py-16 sm:px-10">
       <div className="mx-auto max-w-4xl">
-        <FadeInUp>
-          <h2 className="text-primary mb-6 text-center text-3xl font-bold sm:text-4xl">
+        <FadeInUp delay={0.1}>
+          <h2 className="mb-6 text-center text-3xl font-bold text-primary sm:text-4xl">
             Bog'lanish
           </h2>
         </FadeInUp>
@@ -18,75 +49,78 @@ function Contact() {
         </FadeInUp>
 
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
-          {/* Contact Info */}
-          <FadeInUp delay={0.3}>
-            <div className="space-y-6">
+          <div className="space-y-6">
+            <FadeInUp delay={0.3}>
               <div className="flex items-center gap-4 text-lg">
                 <FaEnvelope className="text-primary" />
                 <span>shohruxmahmudov61@gmail.com</span>
               </div>
+            </FadeInUp>
+            <FadeInUp delay={0.4}>
               <div className="flex items-center gap-4 text-lg">
                 <FaPhone className="text-primary" />
                 <span>+998 93-490-61-68</span>
               </div>
+            </FadeInUp>
+            <FadeInUp delay={0.5}>
               <div className="flex items-center gap-4 text-lg">
                 <FaTelegramPlane className="text-primary" />
-                <a
-                  href="https://t.me/makhmudov618"
-                  className="hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  @makhmudov618
-                </a>
+                <span>@shohruxmahmudov</span>
               </div>
-            </div>
-          </FadeInUp>
+            </FadeInUp>
+          </div>
 
-          {/* Contact Form */}
-          <FadeInUp delay={0.4}>
-            <form className="space-y-6">
+          {/* Form */}
+
+          <form className="space-y-6" ref={formRef} onSubmit={sendEmail}>
+            <FadeInUp delay={0.3}>
               <div>
                 <label className="mb-2 block text-sm font-medium text-gray-700">
                   Ismingiz
                 </label>
                 <input
                   type="text"
+                  name="name"
                   placeholder="Ism"
-                  className="input input-bordered w-full"
+                  className="input-bordered input w-full"
                   required
                 />
               </div>
-
+            </FadeInUp>
+            <FadeInUp delay={0.4}>
               <div>
                 <label className="mb-2 block text-sm font-medium text-gray-700">
                   Email
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email"
-                  className="input input-bordered w-full"
+                  className="input-bordered input w-full"
                   required
                 />
               </div>
-
+            </FadeInUp>
+            <FadeInUp delay={0.5}>
               <div>
                 <label className="mb-2 block text-sm font-medium text-gray-700">
                   Xabar
                 </label>
                 <textarea
-                  rows="4"
-                  placeholder="Xabaringizni yozing..."
-                  className="textarea textarea-bordered w-full"
+                  name="message"
+                  placeholder="Xabar"
+                  className="input-bordered textarea h-32 w-full"
                   required
                 ></textarea>
               </div>
+            </FadeInUp>
 
+            <FadeInUp delay={0.6}>
               <button type="submit" className="btn btn-primary w-full">
                 Yuborish
               </button>
-            </form>
-          </FadeInUp>
+            </FadeInUp>
+          </form>
         </div>
       </div>
     </section>

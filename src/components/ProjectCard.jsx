@@ -52,7 +52,7 @@ function ProjectCard({ image, title, stack, githubUrl, liveUrl }) {
               </FadeInUp>
               <FadeInUp delay={0.9}>
                 <a
-                  href="/src/assets/pdf/shohruhbek-Mahmudov-rezyume.pdf"
+                  href="/src/assets/pdf/Shoxruhbek-Mahmudov-Resume.pdf"
                   download
                   aria-label="Download Shohruhbek Mahmudov's resume"
                   className="flex items-center gap-1 text-blue-400 transition hover:text-blue-600"

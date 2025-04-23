@@ -1,7 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import Logo from "../assets/images/mylogo.png";
-import { FaBarsStaggered, FaGithub } from "react-icons/fa6";
+import { FaBars } from "react-icons/fa6";
+import { FaHome } from "react-icons/fa";
+import { FcAbout } from "react-icons/fc";
+import { MdContacts } from "react-icons/md";
+import { GrProjects } from "react-icons/gr";
 
 function Header() {
   const dropdownRef = useRef(null);
@@ -20,60 +24,26 @@ function Header() {
   return (
     <div>
       <div className="bg-base-100">
-        <header className="navbar container mx-auto bg-base-100 w-full shadow-sm">
-          <div className="navbar-start">
+        <header className="container mx-auto flex w-full items-center justify-between bg-base-100 px-4 py-2 shadow-sm">
+          <div className="">
             <Link to="/" className="flex items-center gap-2">
               <img
-                className="hidden h-[40px] w-[40px] transform rounded-full hover:scale-100 sm:block"
+                className="h-[55px] w-[55px] transform rounded-full hover:scale-100"
                 src={Logo}
                 alt="my logo png"
               />
-              <p className="text-primary hover:text-primary-focus hidden transform text-2xl font-bold transition duration-300 hover:scale-105 sm:block">
-                SHOHRUH.
-                <span className="hover:text-primary text-green-700">uz</span>
-              </p>
-            </Link>
-
-            <div className="bg-base-100 flex h-16 items-center px-4 sm:hidden">
-              <div ref={dropdownRef} className="dropdown h-full">
-                <div
-                  tabIndex={1}
-                  role="button"
-                  className="btn btn-ghost flex h-full w-full items-center justify-center"
-                >
-                  <FaBarsStaggered className="h-7 w-7" />
-                </div>
-
-                <ul
-                  tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
-                >
-                  <li>
-                    <Link to="/">Home</Link>
-                  </li>
-                  <li>
-                    <Link to="/about">About</Link>
-                  </li>
-                  <li>
-                    <Link to="/projects">Projects</Link>
-                  </li>
-                  <li>
-                    <Link to="/contact">Contact</Link>
-                  </li>
-                </ul>
+              <div>
+                <p className="flex text-2xl font-bold text-green-700 duration-300 hover:text-green-300">
+                  SH
+                  <span className="hidden md:block">OHRUH</span>
+                  <span className="text-blue-700">.uz</span>
+                </p>
               </div>
-            </div>
+            </Link>
           </div>
 
-          <div className="navbar-center">
-            <p className="text-primary hover:text-primary-focus block transform text-xl font-bold transition duration-300 hover:scale-105 sm:hidden">
-              SHOHRUH.
-              <span className="hover:text-primary text-green-700">uz</span>
-            </p>
-          </div>
-
-          <div className="navbar-end">
-            <nav className="hidden sm:block">
+          <div className="">
+            <nav className="hidden md:block">
               <ul className="flex items-center gap-4 sm:flex">
                 <li>
                   <Link to="/">Home</Link>
@@ -89,16 +59,32 @@ function Header() {
                 </li>
               </ul>
             </nav>
-
-            <Link
-              to="https://github.com/shokhruh61"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub className="ml-4 h-7 w-7" />
-            </Link>
           </div>
         </header>
+      </div>
+      <div className="fixed bottom-0 left-0 z-50 w-full bg-base-300 p-4 md:hidden md:p-3 lg:p-2">
+        <ul className="flex items-center justify-between">
+          <li>
+            <Link to="/">
+              <FaHome className="h-5 w-5" />
+            </Link>
+          </li>
+          <li>
+            <Link to="/about">
+              <FcAbout className="h-5 w-5" />
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact">
+              <MdContacts className="h-5 w-5" />
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact">
+              <GrProjects className="h-5 w-5" />
+            </Link>
+          </li>
+        </ul>
       </div>
     </div>
   );
