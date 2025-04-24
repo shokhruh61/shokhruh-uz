@@ -1,93 +1,91 @@
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect, useRef } from "react";
-import Logo from "../assets/images/mylogo.png";
-import { FaBars } from "react-icons/fa6";
-import { FaHome } from "react-icons/fa";
+import { FaBars, FaTimes, FaHome } from "react-icons/fa";
 import { FcAbout } from "react-icons/fc";
 import { MdContacts } from "react-icons/md";
 import { GrProjects } from "react-icons/gr";
+import Logo from "../assets/images/mylogo.png";
 
-function Header() {
-  const dropdownRef = useRef(null);
+const navLinks = [
+  { name: "Home", to: "/", icon: <FaHome /> },
+  { name: "About", to: "/about", icon: <FcAbout /> },
+  { name: "Projects", to: "/projects", icon: <GrProjects /> },
+  { name: "Contact", to: "/contact", icon: <MdContacts /> },
+];
+
+const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    const dropdown = dropdownRef.current;
-    if (dropdown) {
-      const details = dropdown.querySelector("ul");
-      if (details) {
-        dropdown.removeAttribute("open");
-      }
-    }
-  }, [location.pathname]);
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <div>
-      <div className="bg-base-100">
-        <header className="container mx-auto flex w-full items-center justify-between bg-base-100 px-4 py-2 shadow-sm">
-          <div className="">
-            <Link to="/" className="flex items-center gap-2">
-              <img
-                className="h-[55px] w-[55px] transform rounded-full hover:scale-100"
-                src={Logo}
-                alt="my logo png"
-              />
-              <div>
-                <p className="flex text-2xl font-bold text-green-700 duration-300 hover:text-green-300">
-                  SH
-                  <span className="hidden md:block">OHRUH</span>
-                  <span className="text-blue-700">.uz</span>
-                </p>
-              </div>
-            </Link>
-          </div>
+    <header className="sticky top-0 z-50 bg-base-100 shadow-sm">
+      <div className="container mx-auto flex items-center justify-between px-4 py-3">
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2" onClick={closeMenu}>
+          <img
+            src={Logo}
+            alt="logo"
+            className="h-10 w-10 rounded-full transition hover:scale-105"
+          />
+          <p className="text-xl font-bold text-green-700">
+            SH<span className="hidden md:inline">OHRUH</span>
+            <span className="text-blue-700">.uz</span>
+          </p>
+        </Link>
 
-          <div className="">
-            <nav className="hidden md:block">
-              <ul className="flex items-center gap-4 sm:flex">
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/about">About</Link>
-                </li>
-                <li>
-                  <Link to="/projects">Projects</Link>
-                </li>
-                <li>
-                  <Link to="/contact">Contact</Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </header>
+        {/* Desktop Nav */}
+        <nav className="hidden gap-6 md:flex">
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className={`transition hover:text-green-500 ${
+                location.pathname === link.to ? "font-bold text-green-600" : ""
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Hamburger */}
+        <button
+          className="text-2xl text-green-700 md:hidden"
+          onClick={toggleMenu}
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
       </div>
-      <div className="fixed bottom-0 left-0 z-50 w-full bg-base-300 p-4 md:hidden md:p-3 lg:p-2">
-        <ul className="flex items-center justify-between">
-          <li>
-            <Link to="/">
-              <FaHome className="h-5 w-5" />
-            </Link>
-          </li>
-          <li>
-            <Link to="/about">
-              <FcAbout className="h-5 w-5" />
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact">
-              <MdContacts className="h-5 w-5" />
-            </Link>
-          </li>
-          <li>
-            <Link to="/projects">
-              <GrProjects className="h-5 w-5" />
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </div>
+
+      {/* Mobile Menu */}
+      {/* Mobile Menu - Fixed Overlay style */}
+      {menuOpen && (
+        <div className="fixed left-0 right-0 top-[60px] z-40 bg-base-100 shadow-md md:hidden">
+          <ul className="flex flex-col gap-4 px-4 py-4">
+            {navLinks.map((link) => (
+              <li key={link.to}>
+                <Link
+                  to={link.to}
+                  onClick={closeMenu}
+                  className={`flex items-center gap-2 text-lg transition hover:text-green-500 ${
+                    location.pathname === link.to
+                      ? "font-semibold text-green-600"
+                      : ""
+                  }`}
+                >
+                  {link.icon}
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </header>
   );
-}
+};
 
 export default Header;

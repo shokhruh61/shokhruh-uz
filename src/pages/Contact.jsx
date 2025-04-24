@@ -12,29 +12,29 @@ function Contact() {
 
     emailjs
       .sendForm(
-        "service_ygaykgo", // EmailJS dan olgan service ID
-        "template_punbob7", // EmailJS dan olgan template ID
+        "service_ygaykgo", // EmailJS service ID
+        "template_punbob7", // EmailJS template ID
         formRef.current,
-        "Fz4FSjAzpU5Rnugvm", // EmailJS dan olgan public key
+        "Fz4FSjAzpU5Rnugvm", // EmailJS public key
       )
       .then(
         (result) => {
           toast.success("Xabaringiz muvaffaqiyatli yuborildi!", result, {
             position: toast.POSITION.TOP_RIGHT,
           });
-          formRef.current.reset(); // Formani tozalash
+          formRef.current.reset();
         },
         (error) => {
           toast.error("Xabar yuborishda xatolik yuz berdi!", error, {
             position: toast.POSITION.TOP_RIGHT,
           });
-          formRef.current.reset(); // Formani tozalash
+          formRef.current.reset();
         },
       );
   };
 
   return (
-    <section className="min-h-screen bg-base-200 px-4 py-16 sm:px-10">
+    <section className="min-h-screen bg-base-200 px-6 py-16 sm:px-10">
       <div className="mx-auto max-w-4xl">
         <FadeInUp delay={0.1}>
           <h2 className="mb-6 text-center text-3xl font-bold text-primary sm:text-4xl">
@@ -49,6 +49,7 @@ function Contact() {
         </FadeInUp>
 
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
+          {/* Contact Details */}
           <div className="space-y-6">
             <FadeInUp delay={0.3}>
               <div className="flex items-center gap-4 text-lg">
@@ -70,9 +71,12 @@ function Contact() {
             </FadeInUp>
           </div>
 
-          {/* Form */}
-
-          <form className="space-y-6" ref={formRef} onSubmit={sendEmail}>
+          {/* Contact Form */}
+          <form
+            className="space-y-6 sm:col-span-1"
+            ref={formRef}
+            onSubmit={sendEmail}
+          >
             <FadeInUp delay={0.3}>
               <div>
                 <label className="mb-2 block text-sm font-medium text-gray-700">
