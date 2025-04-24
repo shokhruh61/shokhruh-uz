@@ -23,9 +23,9 @@ function Home() {
 
           <FadeInUp delay={0.5}>
             <p className="text-lg text-gray-600 md:text-xl dark:text-gray-300">
-              Men Veb dasturchiman. Maqsadim — veb-saytlar va ilovalar yaratish
-              orqali foydalanuvchi tajribasini oshirish va biznesga hissa
-              qo‘shish.
+              Men Veb dasturchiman. Maqsadim — veb-saytlar va veb-ilovalar
+              yaratish orqali foydalanuvchi tajribasini oshirish va hissa
+              qo'shish.
             </p>
           </FadeInUp>
 
