@@ -54,7 +54,13 @@ function Contact() {
             <FadeInUp delay={0.3}>
               <div className="flex items-center gap-4 text-lg">
                 <FaEnvelope className="text-primary" />
-                <span>shohruxmahmudov61@gmail.com</span>
+                <a
+                  href="https:/shohruxmahmudov61@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  shohruxmahmudov61@gmail.com
+                </a>
               </div>
             </FadeInUp>
             <FadeInUp delay={0.4}>
@@ -66,7 +72,13 @@ function Contact() {
             <FadeInUp delay={0.5}>
               <div className="flex items-center gap-4 text-lg">
                 <FaTelegramPlane className="text-primary" />
-                <span>@shohruxmahmudov</span>
+                <a
+                  href="https://t.me/makhmudov618"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @makhmudov618
+                </a>
               </div>
             </FadeInUp>
           </div>
