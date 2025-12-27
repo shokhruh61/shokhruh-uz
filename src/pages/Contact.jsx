@@ -66,7 +66,7 @@ function Contact() {
             <FadeInUp delay={0.4}>
               <div className="flex items-center gap-4 text-lg">
                 <FaPhone className="text-primary" />
-                <span>+998 93-490-61-68</span>
+                <span>+998 93-706-61-68</span>
               </div>
             </FadeInUp>
             <FadeInUp delay={0.5}>
